@@ -30,7 +30,7 @@ class ProductTest < ActiveSupport::TestCase
   	assert_equal "must be greater than or equal to 0.01", product.errors[:price].join('; ')
 
   	product.price=1
-  	asser product.invalid?
+  	assert product.invalid?
   end
 
   def new_product(image_url)
@@ -63,7 +63,6 @@ class ProductTest < ActiveSupport::TestCase
     assert !product.save
 
     assert_equal I18n.translate('activerecord.errors.messages.taken'), product.errors[:title].join('; ')
-
     #assert_equal "has already been taken", product.errors[:title].join('; ')
   end
 
